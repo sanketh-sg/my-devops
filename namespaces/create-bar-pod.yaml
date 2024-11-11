@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bar-pod
+  namespace: bar-namespace
+  labels:
+    app: bar
+spec:
+  containers:
+  - name: bar-container
+    image: nginx:1.12.2
+    ports:
+    - containerPort: 80

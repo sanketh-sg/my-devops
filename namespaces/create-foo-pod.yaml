@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: foo-app
+  namespace: foo-namespace
+  labels:
+    app: foo
+    svc: foo-svc
+spec:
+  containers:
+  - name: foo-app
+    image: nginx:1.22.0

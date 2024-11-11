@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        tier: backend #applied to pods
+        app: v1
+    spec:
+      containers:
+      - name: my-app
+        image: nginx:1.23.0
+        ports:
+        - containerPort: 80   
+  replicas: 3
+  selector:
+    matchLabels:
+      app: v1
+
+      #kubectl set image deployment/my-deployment my-app=nginx:1.23.4
+      # kubectl rollout undo deployment my-deployment --to-revision=1
+      #everytime you rollout or roll back the deployment, revision count increases
