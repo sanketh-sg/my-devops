@@ -10,9 +10,13 @@ spec:
     image: nginx:1.22.0
     ports:
     - containerPort: 80
+    env:
+        - name: USERNAME
+          value: Sanketh
   initContainers:
   - name: init-container-1
     image: busybox:1.28
+    
     command: ['sh', '-c']
     args: ['until nslookup myservice.default.svc.cluster.local; do echo waiting for myservice; sleep 2; done;']
   - name: init-container-2

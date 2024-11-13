@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toleration-pod
+  labels:
+    app: toleration
+spec:
+  containers:
+  - name: toleration-container
+    image: nginx:1.12.2
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: "gpu"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
