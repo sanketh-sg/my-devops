@@ -18,4 +18,5 @@ This drawback of taint along with nodeselectors inability to have multiple condi
 
 In node affinity each node has a labels and pods that match the conditions gets scheduled on them.
 
-If there is a label that does not match any node lable it wont be scheduled.(requiredmode) if labels does not matter and pod can be scheduled anywhere then(preferredmode) 
+If there is a label that does not match any node lable it wont be scheduled.(requiredmode) 
+If scheduling node has a preference on certain node we can use this mode(preferredmode) But if the preference is not available then the node will be scheduled on any available node.
