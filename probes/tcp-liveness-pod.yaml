@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-pod-tcp
+spec:
+  containers:
+  - name: liveness-pod-tcp
+    image: registry.k8s.io/goproxy:0.1
+    ports:
+    - containerPort: 8080
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 10
+    readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 10
+---
+#  the kubelet will attempt to open a socket to your container on the specified port. 
+# If it can establish a connection, the container is considered healthy, if it can't it is considered a failure.

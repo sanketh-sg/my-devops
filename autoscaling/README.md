@@ -17,5 +17,6 @@ kubectl autoscale deployment autoscale-deployment --cpu-percent=50 --min=1 --max
 To simulate the load on the application.
 
 creates a HPA which periodcally monitors the cpu metrics and takes action accordingly.
+![HPA](./image.png)
 
 
