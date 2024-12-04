@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-configmap
+spec: 
+  containers:
+  - name: pod-with-configmap
+    image: registry.k8s.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - sleep 600
+    envFrom:
+    - configMapRef:
+        name: example-configmap

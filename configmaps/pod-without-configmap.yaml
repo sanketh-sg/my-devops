@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-without-configmap
+spec:
+  containers:
+  - name: pod-without-configmap
+    image: registry.k8s.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - sleep 600
+    env:
+    - name: NAME
+      value: "K8s container"
