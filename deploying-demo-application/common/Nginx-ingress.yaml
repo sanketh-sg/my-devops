@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: demo-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /api/golang
+        pathType: Prefix
+        backend:
+          service:
+            name: api-golang
+            port:
+              number: 8000
+      - path: /api/node
+        pathType: Prefix
+        backend:
+          service:
+            name: api-node
+            port:
+              number: 3000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: client-react-nginx
+            port:
+              number: 8080
